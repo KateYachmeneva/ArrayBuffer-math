@@ -1,36 +1,34 @@
+/* eslint-disable no-shadow */
 import Character from './Character';
 
 export default class MathCharacter extends Character {
   constructor(name, type) {
     super(name, type);
     this.distance = 1;
-    this.ston = false;
+    this.tight = false;
   }
 
   get stoned() {
-    return this.ston;
+    return this.tight;
   }
 
   set stoned(value) {
-    this.ston = value;
+    this.tight = value;
   }
 
   set attack(value) {
-    this.attackNew = value;
+    this.baseAttack = value;
   }
 
   get attack() {
-    function linearDependence(distance) {
-      return (100 - (distance - 1) * 10) / 100;
-    }
-    const linearRatio = linearDependence(this.distance);
+    const linearRatio = (100 - (this.distance - 1) * 10) / 100;
     if (this.stoned) {
-      const result = Math.floor(this.attackNew * linearRatio - Math.log2(this.distance) * 5);
+      const result = this.baseAttack * linearRatio - Math.log2(this.distance) * 5;
       if (result > 0) {
-        return result;
+        return Math.floor(result);
       }
       return 0;
     }
-    return this.attackNew * linearRatio;
+    return Math.floor(this.baseAttack * linearRatio);
   }
 }

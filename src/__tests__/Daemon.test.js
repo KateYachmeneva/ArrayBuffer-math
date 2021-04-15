@@ -6,10 +6,10 @@ test('Check class create correct object', () => {
     type: 'Daemon',
     health: 100,
     level: 1,
-    attackNew: 10,
+    baseAttack: 10,
     defence: 40,
     distance: 1,
-    ston: false,
+    tight: false,
   };
   expect(new Daemon('Witch', 'Daemon')).toEqual(expectedObject);
 });

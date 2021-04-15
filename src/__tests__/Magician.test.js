@@ -6,10 +6,10 @@ test('Check class create correct object', () => {
     type: 'Magician',
     health: 100,
     level: 1,
-    attackNew: 10,
+    baseAttack: 10,
     defence: 40,
     distance: 1,
-    ston: false,
+    tight: false,
   };
   expect(new Magician('Ivan', 'Magician')).toEqual(expectedObject);
 });
